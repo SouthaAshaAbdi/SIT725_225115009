@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Books Catalog</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+
+      .book {
+        background: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Books Catalog</h1>
+
+    <div id="books"></div>
+
+    <script>
+      async function fetchBooks() {
+
+        const response = await fetch("/api/books");
+
+        const books = await response.json();
+
+        const booksDiv = document.getElementById("books");
+
+        books.forEach(book => {
+
+          booksDiv.innerHTML += `
+            <div class="book">
+              <h2>${book.title}</h2>
+              <p><strong>Author:</strong> ${book.author}</p>
+            </div>
+          `;
+        });
+      }
+
+      fetchBooks();
+    </script>
+
+  </body>
+</html>

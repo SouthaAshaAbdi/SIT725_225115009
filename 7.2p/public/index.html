@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tech Voting App</title>
+  </head>
+  <body>
+
+    <h1>Which technology should we focus on next?</h1>
+
+    <button onclick="vote('node')">Node.js</button>
+    <button onclick="vote('mongodb')">MongoDB</button>
+    <button onclick="vote('react')">React</button>
+    <button onclick="vote('express')">Express</button>
+
+    <h2>Live Results</h2>
+
+    <p>Node.js: <span id="node">0</span></p>
+    <p>MongoDB: <span id="mongodb">0</span></p>
+    <p>React: <span id="react">0</span></p>
+    <p>Express: <span id="express">0</span></p>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts.js"></script>
+
+  </body>
+</html>
